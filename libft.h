@@ -6,7 +6,7 @@
 /*   By: echoubby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 16:00:06 by echoubby          #+#    #+#             */
-/*   Updated: 2023/11/01 11:31:47 by echoubby         ###   ########.fr       */
+/*   Updated: 2023/11/02 12:20:18 by echoubby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,7 @@ void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_atoi(const char *nptr);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
+char	*ft_strnstr(const char *big, const char *little, size_t len);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 
 #endif

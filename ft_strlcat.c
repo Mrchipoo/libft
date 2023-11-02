@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: echoubby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 11:15:41 by echoubby          #+#    #+#             */
-/*   Updated: 2023/11/01 11:30:23 by echoubby         ###   ########.fr       */
+/*   Created: 2023/11/02 12:35:19 by echoubby          #+#    #+#             */
+/*   Updated: 2023/11/02 16:27:02 by echoubby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	int	sign;
-	int	res;
-	int	i;
+	size_t	i;
+	size_t	len;
+	size_t	j;
 
 	i = 0;
-	sign = 1;
-	res = 0;
-	while (nptr[i] && nptr[i] == 32 || (nptr[i] >= 9 && nptr[i] <= 13))
-		i++;
-	if (nptr[i] == '-')
+	j = strlen(dst);
+	len = strlen(src) + j;
+	if (i >= size)
+		len = strlen(src) + size;
+	while (j < size - 1 && src[i])
 	{
-		sign *= -1;
+		dst[j] = src[i];
+		j++;
 		i++;
 	}
-	if (nptr[i] == '+')
-		i++;
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		res = res * 10 +(nptr[i] - 48);
-		i++;
-	}
+	dst[j] = '\0';
+	return (len);
 }
