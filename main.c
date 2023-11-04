@@ -5,7 +5,7 @@ int	main(void)
 {
 	char	*a;
 
-  	a = "jhihow";
+  	a = "jhihowj";
  	printf("%s", ft_strtrim(a, "j"));
 	return (0);
 }
