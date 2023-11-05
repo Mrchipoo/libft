@@ -3,9 +3,7 @@
 
 int	main(void) 
 {
-	char	*a;
-
-  	a = "jhihowj";
- 	printf("%s", ft_strtrim(a, "j"));
+ 	printf("%s", ft_strtrim("jhihowj", "j"));
+	printf("%s", ft_substr("jhihowj", 1, 5));
 	return (0);
 }
