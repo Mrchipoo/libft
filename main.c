@@ -4,6 +4,8 @@
 int	main(void) 
 {
 	char a[10];
+	char b[10];
+	
 	printf("substr=%s\n", ft_substr("jhihowj", 1, 5));
 	printf("atoi =%d\n", ft_atoi("-589"));
 	printf("isalnum =%d\n", ft_isalnum('j'));
@@ -11,11 +13,12 @@ int	main(void)
 	printf("isascii =%d\n", ft_isascii('j'));
 	printf("isdogit =%d\n", ft_isdigit('j'));
 	printf("isprint =%d\n", ft_isprint('j'));
+	printf("itoa =%s\n", ft_itoa(505042));
 	printf("memcmp =%d\n", ft_memcmp("ja", "jb", 2));
 	printf("strchr =%s\n", ft_strchr("hihowj", 'i'));
 	printf("strdup =%s\n", ft_strdup("jhihowj"));
+	printf("strjoin =%s\n", ft_strjoin("hhh","what"));
 	printf("strlcat =%ld\n", ft_strlcat(a, "jhihoaj", 8));
-	char b[10];
 	printf("strlcpy = %ld\n", ft_strlcpy(b, "jhihoaj", 8));
 	printf("strlen =%d\n", ft_strlen("jhihoaj"));
 	printf("strncmp =%d\n", ft_strncmp("bh", "ah", 2));

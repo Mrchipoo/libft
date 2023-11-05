@@ -1,38 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: echoubby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 11:15:41 by echoubby          #+#    #+#             */
-/*   Updated: 2023/11/01 11:30:23 by echoubby         ###   ########.fr       */
+/*   Created: 2023/11/05 16:13:13 by echoubby          #+#    #+#             */
+/*   Updated: 2023/11/05 18:05:50 by echoubby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+int	len(int n)
 {
-	int	sign;
-	int	res;
 	int	i;
 
 	i = 0;
-	sign = 1;
-	res = 0;
-	while (nptr[i] && (nptr[i] == 32 || (nptr[i] >= 9 && nptr[i] <= 13)))
-		i++;
-	if (nptr[i] == '-')
+	while (n > 0)
 	{
-		sign *= -1;
 		i++;
+		n /= 10;
 	}
-	if (nptr[i] == '+')
-		i++;
-	while (nptr[i] >= '0' && nptr[i] <= '9')
+	return (i);
+}
+
+char	*ft_itoa(int n)
+{
+	int		tol;
+	char	*b;
+
+	tol = 0;
+	if (n < 0)
 	{
-		res = res * 10 +(nptr[i] - 48);
-		i++;
+		n *= -1;
+		tol = len(n) + 1;
+		b = ft_calloc(tol + 1, sizeof(char));
+		b [tol - len(n) - 1] = '-';
 	}
-	return (res * sign);
+	else
+	{
+		tol = len(n);
+		b = ft_calloc(tol + 1, sizeof(char));
+	}
+	b[tol] = '\0';
+	tol--;
+	while (n > 0)
+	{
+		b[tol] = (n % 10) + '0';
+		n /= 10;
+		tol--;
+	}
+	return (b);
 }
