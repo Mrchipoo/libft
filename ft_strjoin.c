@@ -21,7 +21,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	i = 0;
 	j = 0;
 	tol = ft_strlen(s1) + ft_strlen(s2);
-	b = ft_calloc(tol + 1, sizeof(char));
+	b = malloc((tol + 1) * sizeof(char));
+	if (b == NULL)
+		return (0);
 	while (s1[i] && i < tol)
 	{
 		b[i] = s1[i];
