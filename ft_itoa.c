@@ -6,7 +6,7 @@
 /*   By: echoubby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 16:13:13 by echoubby          #+#    #+#             */
-/*   Updated: 2023/11/05 18:05:50 by echoubby         ###   ########.fr       */
+/*   Updated: 2023/11/07 17:39:54 by echoubby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -23,10 +23,12 @@ int	len(int n)
 	}
 	return (i);
 }
-char *n_negative(int c)
+
+char	*n_negative(int c)
 {
 	char	*a;
 	int		tol;
+
 	if (c == -2147483648)
 	{
 		a = "-2147483648";
@@ -42,14 +44,15 @@ char *n_negative(int c)
 		a[0] = '-';
 		a[tol--] = '\0';
 		while (c > 0)
-	{
+		{
 		a[tol] = (c % 10) + '0';
 		c /= 10;
 		tol--;
-	}
+		}
 	}
 	return (a);
 }
+
 char	*ft_itoa(int n)
 {
 	int		tol;
