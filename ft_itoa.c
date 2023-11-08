@@ -24,12 +24,24 @@ int	len(int n)
 	return (i);
 }
 
+char	*aloccate(int tol)
+{
+	char	*b;
+
+	b = malloc((tol + 1) * sizeof(char));
+	if (b == NULL)
+		return (NULL);
+}
+
 char	*n_negative(int c, int tol)
 {
 	char	*a;
 
 	if (c == -2147483648)
 	{
+		a = malloc (12 * sizeof(char));
+		if (a == NULL)
+			return (0);
 		a = "-2147483648";
 		return (a);
 	}
@@ -37,9 +49,7 @@ char	*n_negative(int c, int tol)
 	{
 		c *= -1;
 		tol = len(c) + 1;
-		a = malloc ((tol + 1) * sizeof(char));
-		if (a == NULL)
-			return (0);
+		a = aloccate(tol);
 		a[0] = '-';
 		a[tol--] = '\0';
 		while (tol > 0)
@@ -61,9 +71,7 @@ char	*ft_itoa(int n)
 	if (n >= 0)
 	{
 		tol = len(n);
-		b = malloc((tol + 1) * sizeof(char));
-		if (b == NULL)
-			return (0);
+		b = aloccate(tol);
 		b[tol--] = '\0';
 		while (tol >= 0)
 		{
