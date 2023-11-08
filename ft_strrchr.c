@@ -21,9 +21,11 @@ char	*ft_strrchr(const char *s, int c)
 	while (s[i])
 	{
 		if (s[i] == c)
-			break ;
+		{
+			d = (char *)&s[i];
+			return (d);
+		}
 		i--;
 	}
-	d = (char *)&s[i];
-	return (d);
+	return (NULL);
 }

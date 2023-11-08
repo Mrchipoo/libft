@@ -24,40 +24,41 @@ int	len(int n)
 	return (i);
 }
 
-char	*aloccate(int tol)
+void	*aloccate(int tol)
 {
-	char	*b;
+	void	*b;
 
-	b = malloc((tol + 1) * sizeof(char));
+	b = malloc((tol) * sizeof(char));
 	if (b == NULL)
 		return (NULL);
+	return (b);
 }
 
-char	*n_negative(int c, int tol)
+char	*n_negative(int c)
 {
+	int		tol;
+	long	b;
 	char	*a;
 
-	if (c == -2147483648)
+	b = (long)c;
+	if (b == -2147483648)
 	{
-		a = malloc (12 * sizeof(char));
-		if (a == NULL)
-			return (0);
-		a = "-2147483648";
-		return (a);
+		tol = 11;
+		b *= -1;
 	}
 	else
 	{
-		c *= -1;
-		tol = len(c) + 1;
-		a = aloccate(tol);
+		b *= -1;
+		tol = len(b) + 1;
+	}	
+		a = aloccate(tol + 1);
 		a[0] = '-';
 		a[tol--] = '\0';
-		while (tol > 0)
-		{
-		a[tol] = (c % 10) + '0';
-		c /= 10;
+	while (tol > 0)
+	{
+		a[tol] = (b % 10) + '0';
+		b /= 10;
 		tol--;
-		}
 	}
 	return (a);
 }
@@ -71,7 +72,7 @@ char	*ft_itoa(int n)
 	if (n >= 0)
 	{
 		tol = len(n);
-		b = aloccate(tol);
+		b = aloccate(tol + 1);
 		b[tol--] = '\0';
 		while (tol >= 0)
 		{
@@ -81,6 +82,6 @@ char	*ft_itoa(int n)
 		}
 	}
 	else
-		b = n_negative(n, tol);
+		b = n_negative(n);
 	return (b);
 }
