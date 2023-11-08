@@ -15,8 +15,8 @@ int	len(int n)
 {
 	int	i;
 
-	i = 0;
-	while (n > 0)
+	i = 1;
+	while (n / 10)
 	{
 		i++;
 		n /= 10;
@@ -24,10 +24,9 @@ int	len(int n)
 	return (i);
 }
 
-char	*n_negative(int c)
+char	*n_negative(int c, int tol)
 {
 	char	*a;
-	int		tol;
 
 	if (c == -2147483648)
 	{
@@ -43,7 +42,7 @@ char	*n_negative(int c)
 			return (0);
 		a[0] = '-';
 		a[tol--] = '\0';
-		while (c > 0)
+		while (tol > 0)
 		{
 		a[tol] = (c % 10) + '0';
 		c /= 10;
@@ -66,7 +65,7 @@ char	*ft_itoa(int n)
 		if (b == NULL)
 			return (0);
 		b[tol--] = '\0';
-		while (n > 0)
+		while (tol >= 0)
 		{
 			b[tol] = (n % 10) + '0';
 			n /= 10;
@@ -74,6 +73,6 @@ char	*ft_itoa(int n)
 		}
 	}
 	else
-		b = n_negative(n);
+		b = n_negative(n, tol);
 	return (b);
 }
