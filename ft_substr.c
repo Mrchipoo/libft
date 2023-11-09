@@ -11,6 +11,15 @@
 /* ************************************************************************** */
 #include "libft.h"
 
+char	*b(char *a)
+{
+	a = malloc(1 * sizeof(char));
+	if (a == NULL)
+		return (NULL);
+	a[0] = '\0';
+	return (a);
+}
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
@@ -23,14 +32,15 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (0);
 	tol = ft_strlen(s);
 	sub_len = tol - start;
-	if (len > sub_len)
-		len = sub_len;
 	if (start >= tol)
-		return (0);
+	{
+		subs = b(subs);
+		return (subs);
+	}
 	subs = malloc((len + 1) * sizeof(char));
 	if (subs == NULL)
 		return (0);
-	while (i < len)
+	while (i < len && s[start + i] != '\0')
 	{
 		subs[i] = s[start + i];
 		i++;
