@@ -11,8 +11,9 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-char	*b(char *a)
+void	*b(void)
 {
+	char *a;
 	a = malloc(1 * sizeof(char));
 	if (a == NULL)
 		return (NULL);
@@ -34,7 +35,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	sub_len = tol - start;
 	if (start >= tol)
 	{
-		subs = b(subs);
+		subs = b();
 		return (subs);
 	}
 	subs = malloc((len + 1) * sizeof(char));
