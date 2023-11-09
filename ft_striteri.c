@@ -16,9 +16,6 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	int	i;
 
 	i = 0;
-	s = malloc((ft_strlen(s) + 1) * sizeof(char));
-	if (s == NULL)
-		return ;
 	while (s[i])
 	{
 		f(i, &s[i]);

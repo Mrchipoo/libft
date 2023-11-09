@@ -6,7 +6,7 @@
 /*   By: echoubby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:00:35 by echoubby          #+#    #+#             */
-/*   Updated: 2023/11/04 17:18:20 by echoubby         ###   ########.fr       */
+/*   Updated: 2023/11/09 11:01:20 by echoubby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -24,7 +24,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		last;
 	char	*b;
 
-	if (!s1 || !set)
+	if (!s1 && !set)
 		return (0);
 	last = ft_strlen(s1);
 	first = 0;
