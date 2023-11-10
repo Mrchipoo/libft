@@ -13,7 +13,8 @@
 
 void	*b(void)
 {
-	char *a;
+	char	*a;
+
 	a = malloc(1 * sizeof(char));
 	if (a == NULL)
 		return (NULL);
