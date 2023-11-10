@@ -14,18 +14,10 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*a;
-	size_t	i;
 
-	i = 0;
-	if (size == 0 || nmemb == 0)
-		return (NULL);
 	a = malloc(nmemb * size);
 	if (a == NULL)
 		return (NULL);
-	while (i < nmemb)
-	{
-		*((char *)a + i) = 0;
-		i++;
-	}
+	ft_bzero(a,size * nmemb);
 	return (a);
 }

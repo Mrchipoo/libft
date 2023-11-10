@@ -27,13 +27,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 	char	*subs;
 	size_t	tol;
-	size_t	sub_len;
 
 	i = 0;
 	if (!s)
 		return (0);
 	tol = ft_strlen(s);
-	sub_len = tol - start;
 	if (start >= tol)
 	{
 		subs = b();
