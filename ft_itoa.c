@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-int	len(int n)
+static int	len(int n)
 {
 	int	i;
 
@@ -24,7 +24,7 @@ int	len(int n)
 	return (i);
 }
 
-char	*n_negative(int c)
+static char	*n_negative(int c)
 {
 	int		tol;
 	long	b;
