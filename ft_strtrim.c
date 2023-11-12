@@ -13,13 +13,9 @@
 
 static int	found(char const *s, char const c)
 {
-	while (*s)
-	{
-		if (*s == c)
-			return (1);
+	while (*s && c != *s)
 		s++;
-	}
-	return (0);
+	return (c == *s);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
@@ -36,16 +32,14 @@ char	*ft_strtrim(char const *s1, char const *set)
 	b = malloc((last + 1) * sizeof(char));
 	if (b == NULL)
 		return (0);
-	while (first++ <= last)
-		if (found(set, s1[first]))
-			break ;
+	while (found(set, s1[first]))
+		first++;
 	if (last == first)
 	{
 		b = '\0';
 		return (ft_strdup(b));
 	}
-	while (last-- > first)
-		if (found(set, s1[last - 1]))
-			break ;
+	while (found(set, s1[last - 1]))
+		last--;
 	return (b = ft_substr(s1, first, last - first));
 }
