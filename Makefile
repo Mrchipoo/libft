@@ -8,10 +8,13 @@ CFLAGS = -Wall -Werror -Wextra
 
 
 all: $(NAME)
-$(NAME): $(Object) $(Object_bonus)
-	ar rcs $(NAME) $(Object) $(Object_bonus)
+$(NAME): $(Object) 
+	ar rcs $(NAME) $(Object)
+bonus: $(Object_bonus)
+	ar rcs $(NAME) $(Object_bonus)
 clean:
 	rm -f $(Object) $(Object_bonus)
 fclean: clean
 	rm -f $(NAME)
 re: fclean $(NAME)
+.PHONY: all clean fclean bonus
