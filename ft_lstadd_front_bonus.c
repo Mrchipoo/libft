@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: echoubby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/12 14:13:39 by echoubby          #+#    #+#             */
-/*   Updated: 2023/11/12 17:18:00 by echoubby         ###   ########.fr       */
+/*   Created: 2023/11/13 13:08:05 by echoubby          #+#    #+#             */
+/*   Updated: 2023/11/13 13:12:25 by echoubby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	t_list	*root;
-
-	root = malloc(sizeof(t_list));
-	if (root == NULL)
-		return (NULL);
-	root->content = content;
-	root->next = NULL;
-	return (root);
+	new = malloc(sizeof(t_list));
+	if (new == NULL)
+		return ;
+	new->next = (*lst);
+	(*lst) = new;
 }
