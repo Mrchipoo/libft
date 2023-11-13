@@ -6,7 +6,7 @@
 /*   By: echoubby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 16:00:06 by echoubby          #+#    #+#             */
-/*   Updated: 2023/11/07 11:55:36 by echoubby         ###   ########.fr       */
+/*   Updated: 2023/11/12 17:17:43 by echoubby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_itoa(int n);
-
+typedef struct s_list
+{
+	void			*content;
+	struct s_list		*next;
+}	t_list;
+t_list	*ft_lstnew(void *content);
 #endif
