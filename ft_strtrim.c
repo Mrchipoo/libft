@@ -29,9 +29,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	last = ft_strlen(s1);
 	first = 0;
 	b = (char *)s1;
-	b = malloc((last + 1) * sizeof(char));
-	if (b == NULL)
-		return (0);
 	while (found(set, s1[first]))
 		first++;
 	if (last == first)
