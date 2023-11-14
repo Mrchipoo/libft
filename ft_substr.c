@@ -11,6 +11,13 @@
 /* ************************************************************************** */
 #include "libft.h"
 
+static size_t	count(size_t len, int start, size_t tol)
+{
+	if (tol - start <= len)
+		len = tol - start;
+	return (len);
+}
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
@@ -26,8 +33,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		subs = "";
 		return (ft_strdup(subs));
 	}
-	if (tol <= len)
-		len = tol;
+	len = count(len, start, tol);
 	subs = malloc((len + 1) * sizeof(char));
 	if (subs == NULL)
 		return (0);
