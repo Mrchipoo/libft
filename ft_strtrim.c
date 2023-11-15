@@ -13,9 +13,13 @@
 
 static int	found(char const *s, char const c)
 {
-	while (*s && c != *s)
+	while (*s)
+	{
+		if (c == *s)
+			return (1);
 		s++;
-	return (c == *s);
+	}
+	return (0);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
