@@ -19,11 +19,11 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	unsigned char	*u2;
 
 	i = 0;
-	if (!dest && !src)
-		return (NULL);
+	if (dest == src)
+		return (dest);
 	u1 = (unsigned char *)dest;
 	u2 = (unsigned char *)src;
-	while (i < n)
+	while (src && i < n)
 	{
 		u1[i] = u2[i];
 		i++;
