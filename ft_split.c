@@ -47,9 +47,9 @@ static int	ft_write(char **str, char const *s, char c)
 		{
 			if (allocating(str, index, j + 1))
 				return (1);
+			ft_strlcpy(str[index], s - j, j + 1);
+			index++;
 		}
-		ft_strlcpy(str[index], s - j, j + 1);
-		index++;
 	}
 	return (0);
 }
@@ -78,9 +78,11 @@ char	**ft_split(char const *s, char c)
 	char	**str;
 	int		len;
 
+	if (!s)
+		return (NULL);
 	len = count(s, c);
 	str = malloc((len + 1) * sizeof(char *));
-	if (!str || !s)
+	if (!str)
 		return (NULL);
 	str[len] = NULL;
 	if (ft_write(str, s, c))
