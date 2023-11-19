@@ -6,7 +6,7 @@
 /*   By: echoubby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 13:57:45 by echoubby          #+#    #+#             */
-/*   Updated: 2023/11/16 15:26:06 by echoubby         ###   ########.fr       */
+/*   Updated: 2023/11/19 17:46:03 by echoubby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -79,7 +79,13 @@ char	**ft_split(char const *s, char c)
 	int		len;
 
 	if (!s)
-		return (NULL);
+	{
+		str = malloc(1 * sizeof(char *));
+		if (!str)
+			return (NULL);
+		str[0] = NULL;
+		return (str);
+	}
 	len = count(s, c);
 	str = malloc((len + 1) * sizeof(char *));
 	if (!str)

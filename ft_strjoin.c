@@ -20,6 +20,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	j = 0;
+	if (!s1 || !s2)
+		return (NULL);
 	tol = ft_strlen(s1) + ft_strlen(s2);
 	b = malloc((tol + 1) * sizeof(char));
 	if (b == NULL)
@@ -30,11 +32,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		i++;
 	}
 	while (s2[j] && i < tol)
-	{
-		b[i] = s2[j];
-		j++;
-		i++;
-	}
+		b[i++] = s2[j++];
 	b[i] = '\0';
 	return (b);
 }
