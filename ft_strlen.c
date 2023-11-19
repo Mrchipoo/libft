@@ -6,12 +6,12 @@
 /*   By: echoubby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:38 by echoubby          #+#    #+#             */
-/*   Updated: 2023/10/30 17:55:09 by echoubby         ###   ########.fr       */
+/*   Updated: 2023/11/17 12:21:38 by echoubby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
 	size_t	i;
 
