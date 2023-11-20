@@ -28,7 +28,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		last;
 	char	*b;
 
-	if (!s1 && !set)
+	if (!s1 || !set)
 		return (0);
 	last = ft_strlen(s1);
 	first = 0;
